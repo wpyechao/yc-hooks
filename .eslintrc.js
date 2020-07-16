@@ -1,6 +1,13 @@
 module.exports = {
   extends: ['pyc/react'],
 
+  overrides: [
+    {
+      files: ['**/*.ts?(x)'],
+      parser: '@typescript-eslint/parser',
+    },
+  ],
+
   rules: {
     // off"或0 -关闭规则 "warn" 或1 - 开启规则 "error"或2 - 开启规则
     'jsx-a11y/anchor-is-valid': [

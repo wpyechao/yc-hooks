@@ -1,7 +1,6 @@
 import { useCallback, useRef, useState, useMemo } from 'react';
 import FileSaver from 'file-saver';
 import isEqual from 'lodash.isequal';
-import { message } from 'antd';
 import { TableSetting, Result, Func, Options, Filters } from './types';
 import { useBool } from '../useMethod/useBool';
 import useRequest from '../useRequest';
@@ -95,7 +94,7 @@ export default function useTable<T>(
   const exportExcel = useCallback(
     async (excelName: string = 'excelName'): Promise<any> => {
       if (total === 0) {
-        message.warning('列表为空，不可导出Excel');
+        window.alert('列表为空，不可导出Excel');
       } else {
         toggleFetchingExcel(true);
         const blob = await getExcelPersisted(params);
