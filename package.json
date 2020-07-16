@@ -2,7 +2,9 @@
   "name": "yc-form",
   "version": "0.0.1",
   "description": "form",
-  "main": "index.js",
+  "main": "./lib/index.js",
+  "module": "./es/index.js",
+  "types": "./lib/index.d.ts",
   "scripts": {
     "start": "dumi dev",
     "build": "father-build",
