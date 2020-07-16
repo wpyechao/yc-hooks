@@ -1,7 +1,7 @@
 {
-  "name": "yc-form",
-  "version": "0.0.1",
-  "description": "form",
+  "name": "yc-hooks",
+  "version": "1.0.0",
+  "description": "react hooks library",
   "main": "./lib/index.js",
   "module": "./es/index.js",
   "types": "./lib/index.d.ts",
@@ -12,7 +12,7 @@
   },
   "keywords": [
     "react",
-    "form"
+    "hooks"
   ],
   "author": "pingyechao",
   "license": "ISC",
