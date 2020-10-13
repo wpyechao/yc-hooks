@@ -1,5 +1,5 @@
 import React from 'react';
-import { configResponsive, useResponsive } from '@dragon/hooks';
+import { configResponsive, useResponsive } from 'yc-hooks';
 
 configResponsive({
   xs: 0,

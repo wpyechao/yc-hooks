@@ -6,7 +6,7 @@
 
 import React from 'react';
 import { Card, Button, message } from 'antd';
-import { useCbState } from '@dragon/hooks';
+import { useCbState } from 'yc-hooks';
 
 const Demo = () => {
   const [state, setState] = useCbState('old state');

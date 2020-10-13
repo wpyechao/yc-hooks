@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, message, Button, Table, Menu, Form, Input, Select } from 'antd';
 import { CaretDownOutlined } from '@ant-design/icons';
-import { useTable } from '@dragon/hooks';
+import { useTable } from 'yc-hooks';
 
 const columns = [
   {

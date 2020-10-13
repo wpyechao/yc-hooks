@@ -6,7 +6,7 @@
 
 import React from 'react';
 import { Button } from 'antd';
-import { useToggle } from '@dragon/hooks';
+import { useToggle } from 'yc-hooks';
 
 export default () => {
   const { state, toggle, setLeft, setRight } = useToggle('Hello', 'World');

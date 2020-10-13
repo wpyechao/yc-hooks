@@ -44,12 +44,12 @@ function useToggle<D extends IState = IState, R extends IState = IState>(
   // 设置默认值
   const setLeft = useCallback(() => {
     setState(defaultValue);
-  }, [setState]);
+  }, []);
 
   // 设置取反值
   const setRight = useCallback(() => {
     setState(reverseValueOrigin);
-  }, [setState]);
+  }, []);
 
   return {
     state,

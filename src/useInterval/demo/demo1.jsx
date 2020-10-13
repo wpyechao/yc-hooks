@@ -6,7 +6,7 @@
 
 import React, { useState } from 'react';
 import { Card, Button } from 'antd';
-import { useInterval } from '@dragon/hooks';
+import { useInterval } from 'yc-hooks';
 
 export default () => {
   const [state, setState] = useState(0);

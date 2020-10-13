@@ -5,7 +5,7 @@
 
 import React from 'react';
 import { Spin } from 'antd';
-import { useRequest } from '@dragon/hooks';
+import { useRequest } from 'yc-hooks';
 
 const getList = p =>
   new Promise(r => {

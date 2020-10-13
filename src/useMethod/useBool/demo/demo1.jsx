@@ -6,7 +6,7 @@
 
 import React from 'react';
 import { Button, Switch } from 'antd';
-import { useBool } from '@dragon/hooks';
+import { useBool } from 'yc-hooks';
 
 export default () => {
   const [state, methods] = useBool(true);

@@ -6,7 +6,7 @@
 
 import React from 'react';
 import { Button } from 'antd';
-import { useArray } from '@dragon/hooks';
+import { useArray } from 'yc-hooks';
 
 const array = [
   {

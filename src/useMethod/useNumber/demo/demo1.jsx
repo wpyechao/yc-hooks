@@ -6,7 +6,7 @@
 
 import React from 'react';
 import { Button } from 'antd';
-import { useNumber } from '@dragon/hooks';
+import { useNumber } from 'yc-hooks';
 
 export default () => {
   const [value, methods] = useNumber(100);

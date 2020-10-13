@@ -5,7 +5,7 @@
 
 import React from 'react';
 import { Card } from 'antd';
-import { useDocTitle } from '@dragon/hooks';
+import { useDocTitle } from 'yc-hooks';
 
 const Demo = () => {
   useDocTitle('？我被修改了');

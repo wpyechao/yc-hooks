@@ -5,7 +5,7 @@
 
 import React from 'react';
 import { Button, Switch } from 'antd';
-import { useBoolean } from '@dragon/hooks';
+import { useBoolean } from 'yc-hooks';
 
 export default () => {
   const { state, toggle, setTrue, setFalse } = useBoolean(true);

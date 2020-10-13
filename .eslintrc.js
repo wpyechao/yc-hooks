@@ -1,12 +1,5 @@
 module.exports = {
-  extends: ['pyc/react'],
-
-  overrides: [
-    {
-      files: ['**/*.ts?(x)'],
-      parser: '@typescript-eslint/parser',
-    },
-  ],
+  extends: ['pyc/react', 'pyc/typescript'],
 
   rules: {
     // off"或0 -关闭规则 "warn" 或1 - 开启规则 "error"或2 - 开启规则
@@ -16,6 +9,5 @@ module.exports = {
         aspects: ['invalidHref'],
       },
     ],
-    "no-unused-vars": "error"
   }
 }

@@ -1,6 +1,6 @@
 export default {
   dynamicImport: {},
-  title: 'form',
+  title: 'hooks',
   resolve: {
     includes: [
       'src'

@@ -5,7 +5,7 @@
 
 import React from 'react';
 import { Spin, Button } from 'antd';
-import { useRequest } from '@dragon/hooks';
+import { useRequest } from 'yc-hooks';
 
 const style = {
   marginLeft: 16,

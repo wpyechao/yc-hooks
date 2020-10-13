@@ -15,7 +15,7 @@ group:
 ### 默认用法
 
 ```typescript
-import { IMethod, useMethod } from '@dragon/hooks';
+import { IMethod, useMethod } from 'yc-hooks';
 
 const boolMethods: IMethod<boolean> = {
   setTrue: () => true,
