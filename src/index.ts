@@ -1,30 +1,14 @@
-import { useMethod } from './useMethod';
-import { useArray } from './useMethod/useArray';
-import { useBool } from './useMethod/useBool';
-import { useNumber } from './useMethod/useNumber';
-import useInterval from './useInterval';
-import useToggle from './useToggle';
-import useBoolean from './useBoolean';
-import { configResponsive, useResponsive } from './useResponsive';
-import useRequest from './useRequest';
-import useTable from './useTable';
-import useCbState from './useCbState';
-import useDocTitle from './useDocTitle';
-import usePersistFn from './usePersistFn';
-
-export {
-  useMethod,
-  useArray,
-  useBool,
-  useNumber,
-  useInterval,
-  useToggle,
-  useBoolean,
-  configResponsive,
-  useResponsive,
-  useRequest,
-  useTable,
-  useCbState,
-  useDocTitle,
-  usePersistFn,
-};
+export { useMethod } from './useMethod';
+export { useArray } from './useMethod/useArray';
+export { useBool } from './useMethod/useBool';
+export { useNumber } from './useMethod/useNumber';
+export { default as useInterval } from './useInterval';
+export {  default as useToggle } from './useToggle';
+export { default as useBoolean } from './useBoolean';
+export { configResponsive, useResponsive } from './useResponsive';
+export { default as useRequest } from './useRequest';
+export { default as useTable } from './useTable';
+export { default as useCbState } from './useCbState';
+export { default as useDocTitle } from './useDocTitle';
+export { default as usePersistFn } from './usePersistFn';
+export { default as useViewport } from './useViewport'
