@@ -25,12 +25,12 @@
   "author": "pingyechao",
   "license": "ISC",
   "dependencies": {
-    "@types/file-saver": "^2.0.1",
-    "@types/lodash.isequal": "^4.5.5",
     "file-saver": "^2.0.1",
     "lodash.isequal": "^4.5.0"
   },
   "devDependencies": {
+    "@types/file-saver": "^2.0.1",
+    "@types/lodash.isequal": "^4.5.5",
     "antd": "^4.7.0",
     "dumi": "^1.0.33",
     "eslint-config-pyc": "^2.0.2",
