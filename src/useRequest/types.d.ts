@@ -18,6 +18,6 @@ export declare type Options<T> = {
     manual?: boolean;
     enhanceResponse?: (data: T) => any;
     onSuccess?: (data: T) => void;
-    onError?: (data: T) => void;
+    onError?: (data: Error) => void;
     pollingInterval?: number;
 };

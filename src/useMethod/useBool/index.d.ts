@@ -1,1 +1,6 @@
-export declare function useBool(initialValue?: boolean): [boolean, import("..").Return<boolean>];
+export declare type TRes = {
+    setTrue: () => void;
+    setFalse: () => void;
+    toggle: () => void;
+};
+export declare function useBool(initialValue?: boolean): [boolean, TRes];

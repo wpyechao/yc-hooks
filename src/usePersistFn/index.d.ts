@@ -1,3 +1,3 @@
 declare type Fn = (...args: any[]) => any;
-declare function usePersistFn(fn: (...args: any[]) => any): Fn;
+declare function usePersistFn<T extends Fn>(fn: T | undefined): T;
 export default usePersistFn;

@@ -15,7 +15,7 @@
   ],
   "scripts": {
     "start": "dumi dev",
-    "build": "father-build",
+    "build": "father-build && tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
