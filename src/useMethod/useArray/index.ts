@@ -1,6 +1,17 @@
 import { useMemo } from 'react';
 import { IMethod, useMethod } from '..';
 
+export type TArrayAction<T> = {
+  push: (item: T) => void
+  pop: () => void,
+  shift: () => void,
+  unshift: (items: T | T[]) => void,
+  slice: (start: number, end: number) => void,
+  empty: () => void,
+  set: (items: T[]) => void,
+  remove: (condition: (item: T, index: number) => boolean) => void,
+}
+
 export function useArray<T>(initialValue: T[] = []) {
   const arrayMethods = useMemo<IMethod<T[]>>(() => {
     return {
@@ -16,5 +27,5 @@ export function useArray<T>(initialValue: T[] = []) {
     };
   }, []);
 
-  return useMethod<T[]>(initialValue, arrayMethods);
+  return useMethod<T[], TArrayAction<T>>(initialValue, arrayMethods);
 }

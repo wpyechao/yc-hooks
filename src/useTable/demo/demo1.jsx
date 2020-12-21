@@ -40,7 +40,7 @@ const Tab = props => {
     exportExcel,
     excelLoading,
     tableProps,
-  } = useTable(getList, getExcel, {
+  } = useTable(getList, {
     defaultFilters: { default: 'defaultFilter' },
     form,
   });
@@ -96,15 +96,6 @@ function getList(params) {
         })),
         total: 55,
       });
-    }, 1000);
-  });
-}
-
-function getExcel(params) {
-  message.loading(`使用${JSON.stringify(params)}下载excel中`);
-  return new Promise(r => {
-    setTimeout(() => {
-      r('我是发过来的excel');
     }, 1000);
   });
 }

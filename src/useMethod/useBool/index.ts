@@ -3,12 +3,17 @@ import { IMethod, useMethod } from '..';
 const boolMethods: IMethod<boolean> = {
   setTrue: () => true,
   setFalse: () => false,
-  toggle: (s, n: any) => (n === undefined ? !s : !!n),
+  toggle: (s) => !s,
 };
 
+export type TRes = {
+  setTrue: () => void,
+  setFalse: () => void,
+  toggle: () => void
+}
+
 export function useBool(initialValue?: boolean) {
-  const iv = (typeof initialValue === 'undefined'
-    ? false
-    : initialValue) as boolean;
-  return useMethod(iv, boolMethods);
+  const iv = (typeof initialValue === 'undefined' ? false : initialValue) as boolean;
+
+  return useMethod<boolean, TRes>(iv, boolMethods);
 }

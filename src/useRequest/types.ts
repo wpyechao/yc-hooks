@@ -21,6 +21,6 @@ export type Options<T> = {
   manual?: boolean; // 自动执行
   enhanceResponse?: (data: T) => any;
   onSuccess?: (data: T) => void;
-  onError?: (data: T) => void;
+  onError?: (data: Error) => void;
   pollingInterval?: number;
 };

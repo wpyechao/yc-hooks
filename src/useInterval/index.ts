@@ -6,7 +6,7 @@ interface IOption {
 }
 
 function useInterval(
-  callback: (...args: any[]) => void,
+  callback: () => void,
   delay: number,
   options?: IOption,
 ): {
@@ -42,7 +42,7 @@ function useInterval(
     return () => {
       cancel();
     };
-  }, [_options.manual, cancel, delay, start]);
+  }, [_options.manual, cancel, start]);
 
   return {
     counting,

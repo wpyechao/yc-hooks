@@ -4,17 +4,17 @@ export type IMethod<T> = {
   [key: string]: (v: T, ...args: any[]) => T;
 };
 
-export type Return<T> = {
-  [key: string]: (...args: any[]) => T;
+export type Return = {
+  [key: string]: (...args: any[]) => void;
 };
 
-export function useMethod<T>(
+export function useMethod<T, TResult extends Return>(
   initialValue: T,
   methods: IMethod<T>,
-): [T, Return<T>] {
+): [T, TResult] {
   const [value, setValue] = useState(initialValue);
 
-  const boundMethods = useMemo(
+  const boundMethods = useMemo<TResult>(
     () =>
       Object.entries(methods).reduce((m, [name, fn]) => {
         const method = (...args: any[]): void => {
@@ -24,8 +24,9 @@ export function useMethod<T>(
           ...m,
           [name]: method,
         };
-      }, {}),
+      }, {} as TResult),
     [methods],
   );
+
   return [value, boundMethods];
 }

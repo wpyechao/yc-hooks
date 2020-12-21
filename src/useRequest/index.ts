@@ -160,9 +160,6 @@ function useRequest<T = any>(
   const {
     manual = false,
     pollingInterval = 0,
-    enhanceResponse = () => {},
-    onSuccess = () => {},
-    onError = () => {},
   } = _options;
 
   const [fetchState, setFetchState] = useState<FetchResult<T> | null>(null);
@@ -173,12 +170,9 @@ function useRequest<T = any>(
 
   // ---------------持久化不会变的函数------------
   const requestPersisted = usePersistFn(request);
-
-  const enhanceResponsePersisted = usePersistFn(enhanceResponse);
-
-  const onSuccessPersisted = usePersistFn(onSuccess);
-
-  const onErrorPersisted = usePersistFn(onError);
+  const enhanceResponse = usePersistFn(_options.enhanceResponse);
+  const onSuccess = usePersistFn(_options.onSuccess);
+  const onError = usePersistFn(_options.onError);
   // ---------------持久化不会变的函数------------
 
   // 真正请求接口的函数
@@ -187,13 +181,14 @@ function useRequest<T = any>(
       const fetch = new Fetch(
         requestPersisted,
         {
-          onSuccess: onSuccessPersisted,
-          enhanceResponse: enhanceResponsePersisted,
-          onError: onErrorPersisted,
+          onSuccess,
+          enhanceResponse,
+          onError,
           pollingInterval,
         },
         setFetchState,
       );
+
       fetchStateRef.current = fetch.state;
       setFetchState(fetch.state);
     }
