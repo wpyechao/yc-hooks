@@ -18,7 +18,6 @@ group:
 <code src="./demo/demo2.jsx" />
 <code src="./demo/demo3.jsx" />
 <code src="./demo/demo4.jsx" />
-<code src="./demo/demo5.jsx" />
 
 ## API
 

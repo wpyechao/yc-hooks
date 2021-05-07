@@ -24,9 +24,9 @@ class Fetch<T> {
     params: {},
     start: this.start.bind(this),
     cancel: this.cancel.bind(this),
-  };
+  }
 
-  subscribe: (s: FetchResult<T>) => void;
+  subscribe: (s: FetchResult<T>) => void
 
   constructor(
     request: Request<T>,
@@ -69,20 +69,8 @@ class Fetch<T> {
     if (this.pollingTimer) clearTimeout(this.pollingTimer);
 
     const result = await this.request(...args);
-    // 已被废弃
-    if (count !== this.count) {
-      const err = new Error('请求过期');
-      this.setState({ loading: false });
-      return err;
-    }
 
-    // 请求出错
-    if (result instanceof Error) {
-      this.handleError(result);
-    } else {
-      // 请求正常
-      this.handleSuccess(result);
-    }
+    this.setState({ loading: false });
 
     // 开始下一个轮询
     if (this.config.pollingInterval) {
@@ -90,8 +78,21 @@ class Fetch<T> {
         this.refresh();
       }, this.config.pollingInterval);
     }
+    
+    // 已被废弃
+    if (count !== this.count) {
+      const err = new Error('请求过期')
+      this.handleError(err);
+      return err
+    }
 
-    // 如果要在start 后面用.then获取，那就在enhance一下
+    // 请求出错
+    if (result instanceof Error) {
+      this.handleError(result);
+    } else {
+      this.handleSuccess(result);
+    }
+
     return result;
   }
 
@@ -106,35 +107,20 @@ class Fetch<T> {
     }
   }
 
-  // 增强返回值
-  enhanceResponse(oldResult: T) {
-    if (oldResult instanceof Error) return oldResult;
-
-    const { enhanceResponse = () => {} } = this.config;
-    const newResult = enhanceResponse(oldResult) || oldResult;
-
-    this.setState({ data: newResult });
-
-    return newResult;
-  }
-
   // 成功是的处理函数
   handleSuccess(result: T) {
     const { onSuccess = () => {} } = this.config;
-    const enhanced = this.enhanceResponse(result) || result;
 
-    this.setState({ loading: false, data: enhanced });
+    this.setState({ data: result });
 
-    if (onSuccess) {
-      onSuccess(enhanced);
-    }
+    onSuccess(result);
   }
 
   // 错误时的处理函数
   handleError(err: Error) {
     const { onError = () => {} } = this.config;
 
-    this.setState({ loading: false, error: err });
+    this.setState({ error: err });
 
     onError(err);
   }
@@ -163,14 +149,12 @@ function useRequest<T = any>(
   } = _options;
 
   const [fetchState, setFetchState] = useState<FetchResult<T> | null>(null);
+
   const fetchStateRef = useRef<FetchResult<T> | null>(null);
-  useEffect(() => {
-    fetchStateRef.current = fetchState;
-  }, [fetchState]);
+  fetchStateRef.current = fetchState;
 
   // ---------------持久化不会变的函数------------
   const requestPersisted = usePersistFn(request);
-  const enhanceResponse = usePersistFn(_options.enhanceResponse);
   const onSuccess = usePersistFn(_options.onSuccess);
   const onError = usePersistFn(_options.onError);
   // ---------------持久化不会变的函数------------
@@ -182,7 +166,6 @@ function useRequest<T = any>(
         requestPersisted,
         {
           onSuccess,
-          enhanceResponse,
           onError,
           pollingInterval,
         },
