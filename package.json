@@ -14,15 +14,15 @@
     "package.json"
   ],
   "scripts": {
-    "start": "dumi dev",
-    "build": "father-build && tsc",
+    "start": "npm run build && dumi dev",
+    "build": "tsc && father-build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "react",
     "hooks"
   ],
-  "author": "pingyechao",
+  "author": "wpyechao",
   "license": "ISC",
   "dependencies": {
     "file-saver": "^2.0.1",
@@ -32,7 +32,8 @@
     "@types/file-saver": "^2.0.1",
     "@types/lodash.isequal": "^4.5.5",
     "antd": "^4.7.0",
-    "dumi": "^1.0.33",
+    "babel-plugin-import": "^1.13.3",
+    "dumi": "^1.1.16",
     "eslint-config-pyc": "^2.0.2",
     "father-build": "^1.18.1",
     "react": "^16.13.1",

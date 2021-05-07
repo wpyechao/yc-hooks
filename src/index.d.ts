@@ -8,4 +8,5 @@ export { default as useRequest } from './useRequest';
 export { default as useTable } from './useTable';
 export { default as useDocTitle } from './useDocTitle';
 export { default as usePersistFn } from './usePersistFn';
-export { default as useViewport } from './useViewport';
+export { default as useViewport } from './use-viewport';
+export { default as useMouseDrag } from './use-mouse-drag';
