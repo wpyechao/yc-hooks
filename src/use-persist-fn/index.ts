@@ -1,4 +1,4 @@
-import { useRef, useCallback, useEffect } from 'react';
+import { useRef, useCallback } from 'react';
 
 type Fn = (...args: any[]) => any;
 
@@ -6,9 +6,7 @@ type Fn = (...args: any[]) => any;
 function usePersistFn<T extends Fn>(fn: T | undefined): T {
   const ref = useRef<T | undefined>(fn);
 
-  useEffect(() => {
-    ref.current = fn;
-  }, [fn]);
+  ref.current = fn;
 
   const persistedFn = useCallback((...args: any[]) => ref.current?.(...args), []) as T
 

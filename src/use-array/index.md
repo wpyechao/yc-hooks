@@ -10,7 +10,7 @@ group:
 
 ## 代码演示
 
-<code src="./demo/demo1.jsx" />
+<code src="./demo/demo1.tsx" />
 
 ## API
 

@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { IMethod, useMethod } from '..';
+import { IMethod, useMethod } from '../use-method';
 
 export type TArrayAction<T> = {
   push: (item: T) => void

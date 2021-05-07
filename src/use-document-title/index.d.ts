@@ -1,2 +1,2 @@
-declare const useDocTitle: (title: string) => void;
-export default useDocTitle;
+declare const useDocumentTitle: (title: string) => void;
+export default useDocumentTitle;

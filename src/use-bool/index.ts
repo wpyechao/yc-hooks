@@ -1,4 +1,4 @@
-import { IMethod, useMethod } from '..';
+import { IMethod, useMethod } from '../use-method';
 
 const boolMethods: IMethod<boolean> = {
   setTrue: () => true,

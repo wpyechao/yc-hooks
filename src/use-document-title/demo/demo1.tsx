@@ -5,10 +5,10 @@
 
 import React from 'react';
 import { Card } from 'antd';
-import { useDocTitle } from 'yc-hooks';
+import { useDocumentTitle } from 'yc-hooks';
 
 const Demo = () => {
-  useDocTitle('？我被修改了');
+  useDocumentTitle('？我被修改了');
 
   return <Card>看document title</Card>;
 };

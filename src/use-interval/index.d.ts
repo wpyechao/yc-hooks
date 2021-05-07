@@ -1,9 +1,11 @@
 interface IOption {
     manual?: boolean;
 }
-declare function useInterval(callback: () => void, delay: number, options?: IOption): {
+interface Return<T> {
     counting: boolean;
+    start: T;
     cancel: () => void;
-    start: () => void;
-};
+}
+declare type Fn = (...args: any[]) => any;
+declare function useInterval<T extends Fn>(callback: T, delay: number, options?: IOption): Return<T>;
 export default useInterval;

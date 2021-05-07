@@ -10,6 +10,7 @@ import { useBool } from 'yc-hooks';
 
 export default () => {
   const [state, methods] = useBool(true);
+
   return (
     <div>
       <p>
@@ -21,7 +22,8 @@ export default () => {
           Toggle
         </Button>
         <Button
-          type="danger"
+          danger
+          type="primary"
           onClick={methods.setFalse}
           style={{
             margin: '0 16px',

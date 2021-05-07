@@ -1,4 +1,4 @@
-import { IMethod, useMethod } from '..';
+import { IMethod, useMethod } from '../use-method';
 
 
 const numberMethods: IMethod<number> = {

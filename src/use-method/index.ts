@@ -8,7 +8,7 @@ export type Return = {
   [key: string]: (...args: any[]) => void;
 };
 
-export function useMethod<T, TResult extends Return>(
+export function useMethod<T, TResult = Return>(
   initialValue: T,
   methods: IMethod<T>,
 ): [T, TResult] {

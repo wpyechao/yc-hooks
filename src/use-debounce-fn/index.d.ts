@@ -1,3 +1,3 @@
-declare type Fn = (...args: any[]) => any;
-declare function useDebounceFn(fn: Fn, interval: number): () => void;
+declare type Fn = (...args: any[]) => void;
+declare function useDebounceFn<T extends Fn>(fn: T, interval: number): T;
 export default useDebounceFn;

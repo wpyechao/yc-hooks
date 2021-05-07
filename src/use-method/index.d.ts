@@ -4,4 +4,4 @@ export declare type IMethod<T> = {
 export declare type Return = {
     [key: string]: (...args: any[]) => void;
 };
-export declare function useMethod<T, TResult extends Return>(initialValue: T, methods: IMethod<T>): [T, TResult];
+export declare function useMethod<T, TResult = Return>(initialValue: T, methods: IMethod<T>): [T, TResult];

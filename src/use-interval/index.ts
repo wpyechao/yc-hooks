@@ -5,29 +5,31 @@ interface IOption {
   manual?: boolean;
 }
 
-function useInterval(
-  callback: () => void,
+interface Return<T> {
+  counting: boolean
+  start: T
+  cancel: () => void
+}
+
+type Fn = (...args: any[]) => any
+
+function useInterval<T extends Fn>(
+  callback: T,
   delay: number,
   options?: IOption,
-): {
-  counting: boolean;
-  cancel: () => void;
-  start: () => void;
-} {
-  const _options = (options || {}) as IOption;
-  const [counting, setCounting] = useState(!_options.manual);
+): Return<T> {
+  const _options = (options || {}) as IOption
+
+  const [counting, setCounting] = useState(!_options.manual)
 
   const id = useRef<any>(0);
 
-  // 持久化回调
-  const savedCallback = usePersistFn(callback);
-
-  const start = usePersistFn(() => {
+  const start = usePersistFn(((...args) => {
     if (id.current === 0) {
-      setCounting(true);
-      id.current = setInterval(savedCallback, delay);
+      setCounting(true)
+      id.current = setInterval(() => callback(...args), delay);
     }
-  });
+  }) as T)
 
   const cancel = usePersistFn(() => {
     clearTimeout(id.current);
@@ -37,18 +39,18 @@ function useInterval(
 
   useEffect(() => {
     if (!_options.manual) {
-      start();
+      start()
     }
     return () => {
-      cancel();
-    };
-  }, [_options.manual, cancel, start]);
+      cancel()
+    }
+  }, [])
 
   return {
     counting,
     start,
     cancel,
-  };
+  }
 }
 
 export default useInterval;

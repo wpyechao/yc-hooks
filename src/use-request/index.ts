@@ -155,7 +155,7 @@ function useRequest<T = any>(
   const _deps = (Array.isArray(deps) ? deps : []) as DependencyList;
   const _options = (typeof deps === 'object' && !Array.isArray(deps)
     ? deps
-    : options || {}) as Options<T>;
+    : options || {}) as Options<T>
 
   const {
     manual = false,

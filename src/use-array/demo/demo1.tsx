@@ -21,10 +21,11 @@ const array = [
 
 export default () => {
   const [value, methods] = useArray(array);
+
   return (
     <div>
       <Button
-        onClick={() => methods.push({ id: Date.now(), name: Date.now() })}
+        onClick={() => methods.push({ id: Date.now(), name: `${Date.now()}` })}
       >
         push
       </Button>
@@ -34,7 +35,7 @@ export default () => {
       <Button onClick={() => methods.shift()}>shift</Button>
       <Button
         style={{ margin: '0 16px' }}
-        onClick={() => methods.unshift({ id: Date.now(), name: Date.now() })}
+        onClick={() => methods.unshift({ id: Date.now(), name: `${Date.now()}` })}
       >
         unshift
       </Button>
