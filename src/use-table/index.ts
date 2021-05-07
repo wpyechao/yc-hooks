@@ -1,7 +1,7 @@
 import { useCallback, useRef, useState, useMemo } from 'react';
 import isEqual from 'lodash.isequal';
 import { Result, Func, Options, Filters } from './types';
-import useRequest from '../useRequest';
+import useRequest from '../use-request';
 import { usePersistFn } from '..';
 
 export default function useTable(

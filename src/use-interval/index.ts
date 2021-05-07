@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
-import usePersistFn from '../usePersistFn';
+import usePersistFn from '../use-persist-fn';
 
 interface IOption {
   manual?: boolean;

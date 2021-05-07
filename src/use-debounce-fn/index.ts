@@ -1,5 +1,5 @@
 import { useRef, useEffect } from 'react';
-import usePersistFn from '../usePersistFn';
+import usePersistFn from '../use-persist-fn';
 
 type Fn = (...args: any[]) => any;
 

@@ -1,6 +1,6 @@
 import { pxToNum, toFixed } from '../utils';
 import React, { useEffect, useRef, useState } from 'react';
-import usePersistFn from '../use-persist-fn';
+import usePersistFn from '../use-persist-fn'
 
 const TRIGGER_MAP = {
   left: 0,
