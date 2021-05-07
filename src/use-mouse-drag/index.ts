@@ -1,4 +1,4 @@
-import { pxToNum, toFixed } from '../utils';
+import { pxToNum } from '../utils';
 import React, { useEffect, useRef, useState } from 'react';
 import usePersistFn from '../use-persist-fn'
 
